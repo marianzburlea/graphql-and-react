@@ -2,7 +2,7 @@
 
 ## Why does GraphQL exists?
 
-### Old way of requesting data through API
+### The Problem - Old way of requesting data through API
 
 | URL       | Method |         Operation |
 | --------- | :----: | ----------------: |
@@ -19,6 +19,14 @@
 | /\<name>/:id |  GET   | Fetch an entity with given id |
 | /\<name>/:id |  PUT   | Updatean entity with given id |
 | /\<name>/:id | DELETE | Deletean entity with given id |
+
+RESTFul routing tends to get complicated when nesting or you'd want to make more requests to get data.
+
+A summary of the big issues encountered:
+
+- nesting API routs
+- making multiple requests
+- oversending (overfetching) data
 
 ## What it GraphQL
 
