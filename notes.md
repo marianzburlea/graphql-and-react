@@ -12,6 +12,14 @@
 | /posts/7  |  PUT   |     Update post 7 |
 | /posts/2  | DELETE |     Delete post 2 |
 
+| URL          | Method |                     Operation |
+| ------------ | :----: | ----------------------------: |
+| /\<name>     |  POST  |              Create an entity |
+| /\<name>     |  GET   |            Fetch all entities |
+| /\<name>/:id |  GET   | Fetch an entity with given id |
+| /\<name>/:id |  PUT   | Updatean entity with given id |
+| /\<name>/:id | DELETE | Deletean entity with given id |
+
 ## What it GraphQL
 
 ## How do you use GraphQL
