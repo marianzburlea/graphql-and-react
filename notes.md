@@ -1,8 +1,8 @@
 # GraphQL and React
 
-## Why does GraphQL exists?
+## The Problem - Why does GraphQL exists?
 
-### The Problem - Old way of requesting data through API
+### Old way of requesting data through API
 
 | URL       | Method |         Operation |
 | --------- | :----: | ----------------: |
@@ -31,3 +31,17 @@ A summary of the big issues encountered:
 ## What it GraphQL
 
 ## How do you use GraphQL
+
+Example:
+
+```
+query: {
+  person(id: 25) {
+    connectedPeople {
+      movies {
+        title
+      }
+    }
+  }
+}
+```
