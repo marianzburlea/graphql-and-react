@@ -50,3 +50,12 @@ query: {
 ## Cannot find module 'graphql'
 
 If you get an error with `Cannot find module 'graphql'` just run `npm i graphql` or `yarn add graphql` to solve it.
+
+Add graphiql tool which we use only on the development server
+
+
+## Writing a GraphQL schema
+
+I've created my first schema file that's needed for GraphQL to understand the relations between pieced of data in the database.
+
+The `GraphQLObjectType` always requires two properties: name as a striung and fields as an object. I declared the fileds as **GraphQLString** and **GraphSQLInt**.
