@@ -1,4 +1,17 @@
-const { GraphQLObjectType, GraphQLString, GraphQLInt } = require('graphql')
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = require('graphql')
+
+const userList = [
+  {
+    id: '25',
+    firstName: 'Marian',
+    age: 37
+  },
+  {
+    id: '03',
+    firstName: 'Gratiela',
+    age: 31
+  }
+]
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -26,8 +39,12 @@ const RootQuery = new GraphQLObjectType({
         }
       },
       resolve(parentValue, args) {
-        
+        return userList.find(user => user.id == args.id)
       }
     }
   },
+})
+
+module.exports = new GraphQLSchema({
+  query: RootQuery
 })

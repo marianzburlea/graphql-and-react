@@ -63,3 +63,10 @@ The `GraphQLObjectType` always requires two properties: name as a striung and fi
 ## Root queries
 
 The root query allows GraphQL to look into our data using the `resolve` function.
+
+## Write a schema
+
+I wrote a schema, exported it and imported it into the API server.
+It didn't work from the first try. I'm going to debug it and update this.
+
+Actually it does work. Somehow `nodemon` was not picking it up. After I wrote a `console.log(schema)` and refreshed `http://localhost:4000/graphql` it worked. I'll keep that in mind.
