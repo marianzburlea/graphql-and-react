@@ -1,4 +1,6 @@
 const express = require('express')
+const expressGraphQL = require('express-graphql')
+
 const myApp = express()
 const port = 4000
 

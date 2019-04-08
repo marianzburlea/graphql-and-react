@@ -45,3 +45,8 @@ query: {
   }
 }
 ```
+
+
+## Cannot find module 'graphql'
+
+If you get an error with `Cannot find module 'graphql'` just run `npm i graphql` or `yarn add graphql` to solve it.
