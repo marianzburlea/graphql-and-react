@@ -59,3 +59,7 @@ Add graphiql tool which we use only on the development server
 I've created my first schema file that's needed for GraphQL to understand the relations between pieced of data in the database.
 
 The `GraphQLObjectType` always requires two properties: name as a striung and fields as an object. I declared the fileds as **GraphQLString** and **GraphSQLInt**.
+
+## Root queries
+
+The root query allows GraphQL to look into our data using the `resolve` function.
