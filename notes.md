@@ -70,3 +70,78 @@ I wrote a schema, exported it and imported it into the API server.
 It didn't work from the first try. I'm going to debug it and update this.
 
 Actually it does work. Somehow `nodemon` was not picking it up. After I wrote a `console.log(schema)` and refreshed `http://localhost:4000/graphql` it worked. I'll keep that in mind.
+
+## Write the first query
+
+If you get this message `"message": "Syntax Error: Unexpected <EOF>"` it means you didn't write anything in the query.
+
+The first query looks like:
+
+```
+{
+  user(id:"25") {
+    id,
+    firstName,
+    age
+  }
+}
+```
+
+And the result of the first query looks like:
+```
+{
+  "data": {
+    "user": {
+      "id": "25",
+      "firstName": "Marian",
+      "age": 37
+    }
+  }
+}
+```
+
+Second query:
+```
+{
+  user(id:"00") {
+    id,
+    firstName,
+    age
+  }
+}
+```
+
+Second result:
+```
+{
+  "data": {
+    "user": null
+  }
+}
+```
+
+Third query:
+```
+{
+  user(id:"03") {
+    id,
+    firstName,
+    age
+  }
+}
+```
+
+Third result:
+```
+{
+  user(id:"03") {
+    id,
+    firstName,
+    age
+  }
+}
+```
+
+## Small local database
+
+I've installed JSON server using `npm i -g json-server`
