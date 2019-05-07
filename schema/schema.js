@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = require('graphql')
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema, GraphQLList } = require('graphql')
 const axios = require('axios')
 
 const userList = [
@@ -16,19 +16,25 @@ const userList = [
 
 const AddressType = new GraphQLObjectType({
   name: 'Address',
-  fields: {
+  fields: () => ({
     id: {
       type: GraphQLString,
     },
     street: {
       type: GraphQLString,
+    },
+    users: {
+      type: new GraphQLList(UserType),
+      resolve: ({ id }, args) => axios
+        .get(`http://localhost:3000/addresses/${id}/users`)
+        .then(({data}) => data)
     }
-  }
+  })
 })
 
 const UserType = new GraphQLObjectType({
   name: 'User',
-  fields: {
+  fields: () => ({
     id: {
       type: GraphQLString,
     },
@@ -49,7 +55,7 @@ const UserType = new GraphQLObjectType({
           .then(({data}) => data)
       }
     }
-  }
+  })
 })
 
 const RootQuery = new GraphQLObjectType({
@@ -62,15 +68,23 @@ const RootQuery = new GraphQLObjectType({
           type: GraphQLString
         }
       },
-      // resolve(parentValue, args) {
       resolve(parentValue, { id }) {
         return axios
           .get(`http://localhost:3000/users/${id}`)
-          .then(({data}) => {
-            // console.log(data)
-            return data
-          })
-        // return userList.find(user => user.id == args.id)
+          .then(({data}) =>  data)
+      }
+    },
+    address: {
+      type: AddressType,
+      args: {
+        id: {
+          type: GraphQLString,
+        }
+      },
+      resolve: (parentValue, { id }) => {
+        return axios
+          .get(`http://localhost:3000/addresses/${id}`)
+          .then(({data}) => data)
       }
     }
   },
