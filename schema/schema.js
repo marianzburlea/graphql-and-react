@@ -14,6 +14,18 @@ const userList = [
   }
 ]
 
+const AddressType = new GraphQLObjectType({
+  name: 'Address',
+  fields: {
+    id: {
+      type: GraphQLString,
+    },
+    street: {
+      type: GraphQLString,
+    }
+  }
+})
+
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
@@ -26,6 +38,9 @@ const UserType = new GraphQLObjectType({
     age: {
       type: GraphQLInt
     },
+    addressId: {
+      type: AddressType
+    }
   }
 })
 
