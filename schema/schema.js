@@ -42,7 +42,7 @@ const RootQuery = new GraphQLObjectType({
       // resolve(parentValue, args) {
       resolve(parentValue, { id }) {
         return axios
-          .get(`http://localhost:3000/userList/${id}`)
+          .get(`http://localhost:3000/users/${id}`)
           .then(({data}) => {
             console.log(data)
             return data

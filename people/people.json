@@ -1,14 +1,32 @@
 {
-  "userList": [
+  "users": [
     {
       "id": "25",
       "firstName": "Marian!",
-      "age": 37
+      "age": 37,
+      "addressId": "1"
     },
     {
       "id": "03",
       "firstName": "Gratiela!",
-      "age": 31
+      "age": 31,
+      "addressId": "1"
+    },
+    {
+      "id": "05",
+      "firstName": "Maya!",
+      "age": 31,
+      "addressId": "2"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "1",
+      "street": "Wandsworth Road"
+    },
+    {
+      "id": "2",
+      "street": "Marian Road"
     }
   ]
 }
