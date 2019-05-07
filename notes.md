@@ -145,3 +145,24 @@ Third result:
 ## Small local database
 
 I've installed JSON server using `npm i -g json-server`
+
+## Fragments in GraphQL
+
+```
+query getAddress {
+  funny: address(id:"1") {
+    ...addressList
+  }
+  nice: address(id:"2") {
+    ...addressList
+  }
+}
+
+fragment addressList on Address {
+  id
+  street
+  users {
+    id
+  }
+}
+```
