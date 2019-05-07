@@ -39,7 +39,15 @@ const UserType = new GraphQLObjectType({
       type: GraphQLInt
     },
     addressId: {
-      type: AddressType
+      type: GraphQLString
+    },
+    address: {
+      type: AddressType,
+      resolve({addressId}) {
+        return axios
+          .get(`http://localhost:3000/addresses/${addressId}`)
+          .then(({data}) => data)
+      }
     }
   }
 })
@@ -59,7 +67,7 @@ const RootQuery = new GraphQLObjectType({
         return axios
           .get(`http://localhost:3000/users/${id}`)
           .then(({data}) => {
-            console.log(data)
+            // console.log(data)
             return data
           })
         // return userList.find(user => user.id == args.id)
