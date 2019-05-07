@@ -166,3 +166,17 @@ fragment addressList on Address {
   }
 }
 ```
+# Mutations in GraphQL
+
+This is my first *add* mutation
+```
+mutation {
+  appendPerson(firstName: "Jull", age: 33) {
+    id,
+    firstName,
+    age
+  }
+}
+```
+
+It expects to be passed the required fields and a set of fields I'm expecting it to return
